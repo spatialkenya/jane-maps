@@ -1,6 +1,5 @@
 /node_modules
 /example/node_modules
-/dist/*
 
 # OS files
 .DS_STORE

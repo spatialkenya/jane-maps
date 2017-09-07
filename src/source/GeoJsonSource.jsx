@@ -40,17 +40,20 @@ class GeoJsonSource extends React.Component {
   fetchData() {
     const self = this;
 
-    $.getJSON(this.props.source.source) // eslint-disable-line no-undef
-      .then((data) => {
-        self.data = data;
-        self.addSource();
-      });
+    $.getJSON(this.props.source.source). // eslint-disable-line no-undef
+    then((data) => {
+      self.data = data;
+      self.addSource();
+    });
   }
 
   addSource() {
     this.map.addSource(this.props.source.id, {
       type: 'geojson',
       data: this.data,
+      cluster: this.props.source.cluster || false,
+      clusterMaxZoom: this.props.source.clusterMaxZoom || 12,
+      clusterRadius: this.props.source.clusterRadius || 50,
     });
 
     this.props.onLoaded(this.map.getStyle().sources);
@@ -66,7 +69,7 @@ GeoJsonSource.propTypes = {
   source: PropTypes.object.isRequired,
   onLoaded: PropTypes.func.isRequired,
   isLoaded: PropTypes.bool,
-  nocache: PropTypes.bool,
+  nocache: PropTypes.bool
 };
 
 export default GeoJsonSource;
