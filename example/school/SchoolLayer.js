@@ -25,10 +25,12 @@ class SchoolJaneLayer extends React.Component {
 
     this.setState({checkboxes});
   }
-  onLayerClick(features) {
+  onLayerClick(features,map) {
     features.forEach(feature => {
-      alert(feature.properties.status);
-      console.log(this.state);
+      new mapboxgl.Popup()
+  .setLngLat(feature.geometry.coordinates)
+  .setHTML(feature.properties.province)
+  .addTo(map);
     });
   }
   renderSchools() {
@@ -41,11 +43,11 @@ class SchoolJaneLayer extends React.Component {
       }
       cluster clusterMaxZoom={9} />, < MapLayer id = 'cluster_count' type = 'symbol' source = 'schools' {
         ...schoolLayers.cluster_count
-      } />,< MapLayer id = 'unclustered' type = 'symbol' source = 'schools' {
-        ...schoolLayers.unclustered
-      } />, < MapLayer id = "schools_done" onClick = {
+      } />,< MapLayer id = 'unclustered' type = 'symbol' source = 'schools' onClick = {
         this.onLayerClick
-      }
+      } {
+        ...schoolLayers.unclustered
+      } />, < MapLayer id = "schools_done"
       source = "schools" {
         ...schoolLayers.school_done
       } />

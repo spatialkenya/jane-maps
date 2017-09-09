@@ -135,7 +135,7 @@
           type: 'geojson',
           data: this.data,
           cluster: this.props.source.cluster || false,
-          clusterMaxZoom: this.props.source.clusterMaxZoom || 50,
+          clusterMaxZoom: this.props.source.clusterMaxZoom || 12,
           clusterRadius: this.props.source.clusterRadius || 50
         });
 
