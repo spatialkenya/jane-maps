@@ -140,9 +140,13 @@
         this.label.setLngLat(feature.geometry.coordinates).setHTML('<p>' + label + '</p>').addTo(map);
 
         if (this.props.flyTo) {
+          var zoom = 15;
+          if (this.props.zoom) {
+            zoom = this.props.zoom;
+          }
           map.flyTo({
             center: feature.geometry.coordinates,
-            zoom: 15
+            zoom: zoom
           });
         }
       }
