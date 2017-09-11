@@ -13,9 +13,11 @@ import {
 
 import TransportationJaneLayer from './transportation/JaneLayer';
 import SchoolJaneLayer from './school/SchoolLayer';
+import AdminLayer from './admin/AdminLayer';
 import DummyComponent from './DummyComponent';
 
 import '../dist/styles.css';
+import './index.css';
 
 injectTapEventPlugin();
 
@@ -96,6 +98,12 @@ const JaneExample = () => {
 
           <TransportationJaneLayer defaultDisabled/>
           <SchoolJaneLayer/>
+          <AdminLayer defaultDisabled bounds={[
+            [
+              32.958984, -5.353521
+            ],
+            [43.50585, 5.615985]
+          ]} />
         </Jane>
       </div>
     </MuiThemeProvider>

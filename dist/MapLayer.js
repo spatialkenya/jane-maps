@@ -163,6 +163,9 @@
           this.props.map.__INTERNAL__hoverLayers[this.props.id] = true;
           this.props.map.on('click', this.onClick);
         }
+        if (this.props.fitFeatureBounds) {
+          this.props.map.fitBounds(this.props.fitFeatureBounds);
+        }
       }
     }, {
       key: 'removeLayer',
@@ -208,6 +211,7 @@
     previousMapLayer: _propTypes2.default.string,
     order: _propTypes2.default.number,
     onClick: _propTypes2.default.func,
+    fitFeatureBounds: _propTypes2.default.array,
     registerRedrawCallback: _propTypes2.default.func.isRequired
   };
 

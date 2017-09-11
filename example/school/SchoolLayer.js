@@ -27,9 +27,10 @@ class SchoolJaneLayer extends React.Component {
   }
   onLayerClick(features,map) {
     features.forEach(feature => {
+      const content = '<div class="panel panel-default"><div class="panel-heading"><i class="fa fa-info-circle" aria-hidden="true" style="padding-right: 5px;"></i>'+feature.properties.name_of_sc +'</div><div class="panel-body">Panel content</div></div>'
       new mapboxgl.Popup()
   .setLngLat(feature.geometry.coordinates)
-  .setHTML(feature.properties.province)
+  .setHTML(content)
   .addTo(map);
     });
   }
@@ -45,7 +46,7 @@ class SchoolJaneLayer extends React.Component {
         ...schoolLayers.cluster_count
       } />,< MapLayer id = 'unclustered' type = 'symbol' source = 'schools' onClick = {
         this.onLayerClick
-      } {
+      }  {
         ...schoolLayers.unclustered
       } />, < MapLayer id = "schools_done"
       source = "schools" {
