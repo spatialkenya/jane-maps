@@ -57,13 +57,9 @@ class Marker extends React.Component {
       .addTo(map);
 
     if (this.props.flyTo) {
-      let zoom = 15;
-      if(this.props.zoom){
-        zoom = this.props.zoom
-      }
       map.flyTo({
         center: feature.geometry.coordinates,
-        zoom:zoom,
+        zoom:this.props.zoom,
       });
     }
   }
@@ -78,11 +74,13 @@ Marker.propTypes = {
   feature: PropTypes.object.isRequired,
   map: PropTypes.object,
   label: PropTypes.string.isRequired,
+  zoom: PropTypes.number
 };
 
 Marker.defaultProps = {
   flyTo: false,
   map: {},
+  zoom:15,
 };
 
 

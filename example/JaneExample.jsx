@@ -77,14 +77,8 @@ const JaneExample = () => {
         <Jane mapboxGLOptions={mapboxGLOptions} search searchConfig={searchConfig}>
           <JaneLayer id="feature" name="Feature" icon="university" defaultSelected component={< DummyComponent />}>
 
-            <Source id="feature" type="geojson" data={featureSource}/>
 
-            <MapLayer id="feature" source="feature" type="circle" paint={{
-              'circle-radius': 10,
-              'circle-color': 'steelblue',
-              'circle-opacity': 0.7
-            }}/>
-            <Marker label="Example Marker" feature={markerFeature}/>
+          <Marker label="Example Marker" feature={markerFeature} flyTo zoom={15}/>
 
             <Legend>
               <div className="legendSection">
@@ -96,14 +90,7 @@ const JaneExample = () => {
 
           </JaneLayer>
 
-          <TransportationJaneLayer defaultDisabled/>
-          <SchoolJaneLayer/>
-          <AdminLayer defaultDisabled bounds={[
-            [
-              32.958984, -5.353521
-            ],
-            [43.50585, 5.615985]
-          ]} />
+
         </Jane>
       </div>
     </MuiThemeProvider>

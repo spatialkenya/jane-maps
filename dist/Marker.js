@@ -140,13 +140,9 @@
         this.label.setLngLat(feature.geometry.coordinates).setHTML('<p>' + label + '</p>').addTo(map);
 
         if (this.props.flyTo) {
-          var zoom = 15;
-          if (this.props.zoom) {
-            zoom = this.props.zoom;
-          }
           map.flyTo({
             center: feature.geometry.coordinates,
-            zoom: zoom
+            zoom: this.props.zoom
           });
         }
       }
@@ -167,12 +163,14 @@
     flyTo: _propTypes2.default.bool,
     feature: _propTypes2.default.object.isRequired,
     map: _propTypes2.default.object,
-    label: _propTypes2.default.string.isRequired
+    label: _propTypes2.default.string.isRequired,
+    zoom: _propTypes2.default.number
   };
 
   Marker.defaultProps = {
     flyTo: false,
-    map: {}
+    map: {},
+    zoom: 15
   };
 
   exports.default = Marker;
