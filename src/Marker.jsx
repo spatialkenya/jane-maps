@@ -12,7 +12,7 @@ class Marker extends React.Component {
     // TODO entire marker should be config-driven
     // url reference breaks depending on how the site is hosted
     // so for now just reference the marker image on the production domain
-    el.style.backgroundImage = 'url(//capitalplanning.nyc.gov/img/orange-marker.png)';
+    el.style.backgroundImage = 'url(//s3-eu-west-1.amazonaws.com/myspatialdata/green-marker.png)';
     el.style.width = '32px';
     el.style.height = '32px';
 

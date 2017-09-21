@@ -10,6 +10,7 @@
   "license": "BSD-2-Clause",
   "dependencies": {
     "css-loader": "^0.26.2",
+    "dom-notifications": "^1.1.1",
     "extract-text-webpack-plugin": "^2.0.0",
     "jane-maps": "^0.1.0",
     "material-ui": "^0.17.0",

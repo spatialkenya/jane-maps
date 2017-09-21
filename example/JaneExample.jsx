@@ -40,7 +40,7 @@ const markerFeature = {
   properties: {},
   geometry: {
     type: 'Point',
-    coordinates: [-74.00390625, 40.71499673906409]
+    coordinates: [36.8219, -1.2921]
   }
 };
 
@@ -75,22 +75,16 @@ const JaneExample = () => {
         width: '500px'
       }}>
         <Jane mapboxGLOptions={mapboxGLOptions} search searchConfig={searchConfig}>
-          <JaneLayer id="feature" name="Feature" icon="university" defaultSelected component={< DummyComponent />}>
-
-
-          <Marker label="Example Marker" feature={markerFeature} flyTo zoom={15}/>
-
-            <Legend>
-              <div className="legendSection">
-                <p>Disclaimer: This map aggregates data from multiple public sources, and DCP cannot verify the accuracy of all records. Not all sites are service locations, among other limitations.
-                  <a href="http://docs.capitalplanning.nyc/facdb/#iii-limitations-and-disclaimers">
-                    Read more</a>.</p>
-              </div>
-            </Legend>
-
-          </JaneLayer>
-
-
+        <SchoolJaneLayer defaultSelected/>
+          <JaneLayer
+             id="feature"
+             name="Feature"
+             icon="university"
+             defaultSelected
+             component={<DummyComponent />}
+           >
+        <Marker label="Example Marker" feature={markerFeature} />
+        </JaneLayer>
         </Jane>
       </div>
     </MuiThemeProvider>
