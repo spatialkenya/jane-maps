@@ -105,11 +105,10 @@
         var uniqueFeatures = _underscore2.default.uniq(features, function (feature) {
           return feature.id;
         });
+        console.log(uniqueFeatures);
 
         if (uniqueFeatures.length > 0) {
           _this.props.onClick(uniqueFeatures, _this.props.map);
-        } else {
-          _this.props.onClick(null, _this.props.map);
         }
       }, _temp), _possibleConstructorReturn(_this, _ret);
     }
