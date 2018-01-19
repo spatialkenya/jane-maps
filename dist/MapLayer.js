@@ -109,7 +109,7 @@
         if (uniqueFeatures.length > 0) {
           _this.props.onClick(uniqueFeatures, _this.props.map);
         } else {
-          _this.props.onClick([], _this.props.map);
+          _this.props.onClick(null, _this.props.map);
         }
       }, _temp), _possibleConstructorReturn(_this, _ret);
     }
