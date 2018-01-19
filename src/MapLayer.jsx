@@ -98,6 +98,9 @@ class MapLayer extends React.Component {
     if (uniqueFeatures.length > 0) {
       this.props.onClick(uniqueFeatures,this.props.map);
     }
+    else{
+      this.props.onClick([],this.props.map);
+    }
   };
 
   render() {
