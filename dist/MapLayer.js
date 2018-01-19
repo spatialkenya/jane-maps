@@ -101,7 +101,7 @@
         _this.removeLayer();
         _this.addLayer(props || _this.props);
       }, _this.onClick = function (event) {
-        var features = _this.props.map.queryRenderedFeatures(event.point);
+        var features = _this.props.map.queryRenderedFeatures(event.point, { layers: [_this.props.id] });
         var uniqueFeatures = _underscore2.default.uniq(features, function (feature) {
           return feature.id;
         });
