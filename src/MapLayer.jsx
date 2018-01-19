@@ -94,12 +94,10 @@ class MapLayer extends React.Component {
   onClick = (event) => {
     const features = this.props.map.queryRenderedFeatures(event.point);
     const uniqueFeatures = _.uniq(features, feature => feature.id);
-    console.log(uniqueFeatures)
 
     if (uniqueFeatures.length > 0) {
       this.props.onClick(uniqueFeatures,this.props.map);
     }
-
   };
 
   render() {
