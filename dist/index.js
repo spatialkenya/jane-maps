@@ -1,22 +1,22 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', './Jane', './JaneLayer', './source/Source', './MapLayer', './Legend', './Marker'], factory);
+    define(['exports', './Jane', './JaneLayer', './source/Source', './MapLayer', './Legend', './LocalSearch', './Marker'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('./Jane'), require('./JaneLayer'), require('./source/Source'), require('./MapLayer'), require('./Legend'), require('./Marker'));
+    factory(exports, require('./Jane'), require('./JaneLayer'), require('./source/Source'), require('./MapLayer'), require('./Legend'), require('./LocalSearch'), require('./Marker'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.Jane, global.JaneLayer, global.Source, global.MapLayer, global.Legend, global.Marker);
+    factory(mod.exports, global.Jane, global.JaneLayer, global.Source, global.MapLayer, global.Legend, global.LocalSearch, global.Marker);
     global.index = mod.exports;
   }
-})(this, function (exports, _Jane, _JaneLayer, _Source, _MapLayer, _Legend, _Marker) {
+})(this, function (exports, _Jane, _JaneLayer, _Source, _MapLayer, _Legend, _LocalSearch, _Marker) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.Marker = exports.Legend = exports.MapLayer = exports.Source = exports.JaneLayer = exports.Jane = undefined;
+  exports.Marker = exports.LocalSearch = exports.Legend = exports.MapLayer = exports.Source = exports.JaneLayer = exports.Jane = undefined;
 
   var _Jane2 = _interopRequireDefault(_Jane);
 
@@ -27,6 +27,8 @@
   var _MapLayer2 = _interopRequireDefault(_MapLayer);
 
   var _Legend2 = _interopRequireDefault(_Legend);
+
+  var _LocalSearch2 = _interopRequireDefault(_LocalSearch);
 
   var _Marker2 = _interopRequireDefault(_Marker);
 
@@ -41,5 +43,6 @@
   exports.Source = _Source2.default;
   exports.MapLayer = _MapLayer2.default;
   exports.Legend = _Legend2.default;
+  exports.LocalSearch = _LocalSearch2.default;
   exports.Marker = _Marker2.default;
 });

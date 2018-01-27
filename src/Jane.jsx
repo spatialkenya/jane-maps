@@ -24,6 +24,8 @@ class Jane extends React.Component {
     onLayerClose: PropTypes.func,
     addLegend: PropTypes.func,
     removeLegend: PropTypes.func,
+    addLocalSearch: PropTypes.func,
+    removeLocalSearch: PropTypes.func,
     map: PropTypes.object,
   };
 
@@ -37,6 +39,7 @@ class Jane extends React.Component {
       selectedLayer: null,
       loadedSources: {},
       legend: [],
+      localsearch:[],
       layers: [],
     };
 
@@ -54,6 +57,8 @@ class Jane extends React.Component {
     onLayerClose: this.deselectLayer,
     addLegend: this.addLegend,
     removeLegend: this.removeLegend,
+    addLocalSearch:this.addLocalSearch,
+    removeLocalSearch:this.removeLocalSearch,
     map: this.state.mapLoaded ? this.GLMap.map : null,
   });
 
@@ -91,6 +96,12 @@ class Jane extends React.Component {
 
   addLegend = legend =>
     this.setState({ legend: this.state.legend.concat(legend) });
+
+  removeLocalSearch = localsearch =>
+    this.setState({ localsearch: this.state.localsearch.filter(item => item !== localsearch) });
+
+  addLocalSearch = localsearch =>
+    this.setState({ localsearch: this.state.localsearch.concat(localsearch) });
 
   unregisterLayer = (layerId) => {
     this.layers = this.layers.filter(layer => layer !== layerId);
@@ -199,13 +210,19 @@ class Jane extends React.Component {
               leftOffset={leftOffset}
             />
           }
-
           {
-            this.state.legend.length > 0 &&
-            <div className="jane-legend" style={{ left: leftOffset }}>
-              { this.state.legend }
+            this.state.localsearch.length > 0 &&
+            <div className={'mui-toolbar-container search-filter-toolbar'} style={{ left: leftOffset }}>
+              { this.state.localsearch }
             </div>
-          }
+          }          
+
+           {
+            this.state.legend.length > 0 &&
+             <div className="jane-legend" style={{ left: leftOffset }}>
+               { this.state.legend }
+            </div>
+           }
 
           <GLMap
             {...this.props.mapboxGLOptions}

@@ -128,6 +128,8 @@
           onLayerClose: _this.deselectLayer,
           addLegend: _this.addLegend,
           removeLegend: _this.removeLegend,
+          addLocalSearch: _this.addLocalSearch,
+          removeLocalSearch: _this.removeLocalSearch,
           map: _this.state.mapLoaded ? _this.GLMap.map : null
         };
       };
@@ -144,6 +146,16 @@
 
       _this.addLegend = function (legend) {
         return _this.setState({ legend: _this.state.legend.concat(legend) });
+      };
+
+      _this.removeLocalSearch = function (localsearch) {
+        return _this.setState({ localsearch: _this.state.localsearch.filter(function (item) {
+            return item !== localsearch;
+          }) });
+      };
+
+      _this.addLocalSearch = function (localsearch) {
+        return _this.setState({ localsearch: _this.state.localsearch.concat(localsearch) });
       };
 
       _this.unregisterLayer = function (layerId) {
@@ -254,6 +266,7 @@
         selectedLayer: null,
         loadedSources: {},
         legend: [],
+        localsearch: [],
         layers: []
       };
 
@@ -317,6 +330,11 @@
               selectionActive: !!this.state.searchResultMarker,
               leftOffset: leftOffset
             })),
+            this.state.localsearch.length > 0 && _react2.default.createElement(
+              'div',
+              { className: 'mui-toolbar-container search-filter-toolbar', style: { left: leftOffset } },
+              this.state.localsearch
+            ),
             this.state.legend.length > 0 && _react2.default.createElement(
               'div',
               { className: 'jane-legend', style: { left: leftOffset } },
@@ -367,6 +385,8 @@
     onLayerClose: _propTypes2.default.func,
     addLegend: _propTypes2.default.func,
     removeLegend: _propTypes2.default.func,
+    addLocalSearch: _propTypes2.default.func,
+    removeLocalSearch: _propTypes2.default.func,
     map: _propTypes2.default.object
   };
 
